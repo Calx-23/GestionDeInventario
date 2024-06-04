@@ -66,11 +66,17 @@
     <body>
         <div class="container">
             <h1>Principal</h1>
-            <form action="InventarioControlador" method="post">
-                <button type="submit">Inventario</button>
+            <form action="InventarioControlador" method="get">
+                <input type="hidden" name="action" value="view">
+                <button type="submit" class="button">Inventario</button>
             </form>
-            <form action="MovimientoControlador" method="post">
-                <button type="submit">Registro de movimientos</button>
+            <form action="ProductoControlador" method="get">
+                <input type="hidden" name="action" value="view">
+                <button type="submit" class="button">Productos</button>
+            </form>
+            <form action="MovimientoControlador" method="get">
+                <input type="hidden" name="action" value="view">
+                <button type="submit" class="button">Registro de movimientos</button>
             </form>
             <form action="configuracion.jsp" method="post">
                 <button type="submit">Configuración de usuario</button>
