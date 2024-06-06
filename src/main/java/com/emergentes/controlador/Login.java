@@ -27,12 +27,10 @@ public class Login extends HttpServlet {
         Validate v = new Validate();
 
         if (v.checkUser(nombres, password)) {
-            //System.out.println("Todo OK");
             HttpSession ses = request.getSession();
             ses.setAttribute("login","OK");
             response.sendRedirect("principal.jsp");
         } else {
-            //System.out.println("Incorrecto");
             response.sendRedirect("login.jsp");
         }
     }

@@ -9,118 +9,87 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         h1 {
-            text-align: center;
             color: #333;
-            margin-bottom: 20px;
         }
-
         table {
-            width: 80%;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 800px;
             border-collapse: collapse;
+            margin: 20px 0;
             background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         th, td {
             padding: 12px;
             text-align: left;
-            border: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
         }
-
         th {
-            background-color: #4CAF50;
+            background-color: #007BFF;
             color: white;
         }
-
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
-
-        a {
-            text-decoration: none;
-            color: #4CAF50;
-            font-weight: bold;
+        tr:hover {
+            background-color: #f1f1f1;
         }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            margin: 4px 0;
-            border: none;
+        .btn, .btn-volver {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 5px;
             border-radius: 4px;
-            cursor: pointer;
-            background-color: #4CAF50;
+            text-decoration: none;
             color: white;
+            background-color: #007BFF;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn:hover, .btn-volver:hover {
+            background-color: #0056b3;
+        }
+        .btn-volver {
+            background-color: #6c757d;
             text-align: center;
         }
-
-        .btn:hover {
-            background-color: #45a049;
-        }
-
-        .btn-enviar,
-        .btn-volver {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            text-decoration: none;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .btn-enviar {
-            background-color: #28a745;
-            margin-right: 10px;
-        }
-
-        .btn-volver {
-            background-color: #dc3545;
+        .btn-volver:hover {
+            background-color: #5a6268;
         }
     </style>
 </head>
 <body>
-<h1>Usuarios</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Nombres</th>
-        <th>Apellidos</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <c:forEach var="item" items="${usuarios}">
+    <h1>Usuarios</h1>
+    <table>
         <tr>
-            <td>${item.id}</td>
-            <td>${item.nombres}</td>
-            <td>${item.apellidos}</td>
-            <td><a class="btn" href="UsuarioControlador?action=edit&id=${item.id}">Editar</a></td>
-            <td><a class="btn" href="UsuarioControlador?action=delete&id=${item.id}" onclick="return confirm('¿Está seguro?')">Eliminar</a></td>
+            <th>Id</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
-    </c:forEach>
-</table>
-<button type="submit" class="btn-enviar">Enviar</button>
-<a href="configuracion.jsp" class="btn-volver">Volver</a>
+        <c:forEach var="item" items="${usuarios}">
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.nombres}</td>
+                <td>${item.apellidos}</td>
+                <td><a class="btn" href="UsuarioControlador?action=edit&id=${item.id}">Editar</a></td>
+                <td><a class="btn" href="UsuarioControlador?action=delete&id=${item.id}" onclick="return confirm('¿Está seguro?')">Eliminar</a></td>
+            </tr>
+        </c:forEach>
+    </table>
+    <a href="configuracion.jsp" class="btn-volver">Volver</a>
 </body>
 </html>
-
