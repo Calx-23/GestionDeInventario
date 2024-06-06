@@ -63,19 +63,27 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         th, td {
-            padding: 10px;
+            padding: 12px;
             text-align: left;
-            white-space: nowrap; /* Evita el salto de línea para el contenido largo */
+            border-bottom: 1px solid #ddd;
         }
         th {
             background-color: #007BFF;
             color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        td {
+            word-wrap: break-word; /* Ensure content breaks properly */
         }
     </style>
 </head>
